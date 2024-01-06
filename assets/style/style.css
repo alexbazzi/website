@@ -1,0 +1,212 @@
+@font-face {
+    font-family: "Monocraft";
+    src: local("Monocraft");
+    /* src: url("https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf") format("truetype"); */
+    /* src: url("https://sadhost.neocities.org/fonts/FreePixel.ttf") format("truetype"); */
+}
+
+:root {
+    /*background-image: url('../../assets/img/bg.jpg');*/
+    
+    --background: #0E191A;
+    --main-color:#7107AF;
+    --main-color-dk:#441261;
+    --accent-1:#B5E61D;
+    --accent-2:#EB53D3;
+    --content-spacing:5px;
+    --background-img:url('../img/bg-code.png');
+    --banner:url('../img/bg_ascii2.png');
+    --banner-footer: url('../img/tiny-bar-green.png');
+    --titleBars:url('../img/tiny-bar-green.png');
+    --text-color: white;
+    --text-shadow-custom: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    --link-color:var(--accent-1);
+    --border:2px solid black;
+    --arrows:url('../assets/images/arrow.png');
+    
+}
+
+html,
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Monocraft";
+}
+
+body {
+    background-color: black;
+    color: var(--text-color);
+    background-attachment: scroll;
+    z-index: 1;
+}
+
+.topbar {
+    background-image:var(--banner);
+    background-size: 100% 100%;
+    height:150px;
+    margin-bottom:var(--content-spacing);
+    border:var(--border);
+}
+
+#container,
+.topbar img {
+    max-width: 850px;
+    margin: 0 auto;
+}
+#container a {
+    color:var(--link-color);
+}
+
+.topbar img {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+#container {
+    border-top: none;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Revised Pseudo-element Styles */
+body::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background-image: var(--background-img);
+    background-size: cover; /* Ensure the image covers the entire element */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    opacity: 0.8; /* Adjust the transparency */
+    z-index: -1;
+}
+
+#flex {
+    display: flex;
+    max-width:850px;
+}
+
+aside {
+    width: 30%;
+    margin-left:var(--content-spacing);
+    border-left:var(--border);
+    background-color: var(--background);
+    opacity: 0.9;
+}
+
+.title, .sidebar-title {
+    background-image:var(--titleBars);
+    font-weight:bold;
+    border:var(--border);
+    font-size:20px;
+    color: var(--text-color);
+    text-shadow: var(--text-shadow-custom);
+    /*position: sticky;*/
+}
+
+.navclass {
+    opacity: 1.0;
+}
+
+.wrapper {
+    opacity: 0.9;
+}
+
+main {
+    width: 74%;
+    background-color: var(--background);
+}
+
+nav {
+    /*position:sticky;*/
+    top:20px;
+}
+
+nav ul {
+    /*list-style-image:var(--arrows);*/
+    margin-left:0;
+    padding-left:30px;
+}
+
+nav ul li a {
+    color:var(--accent-1);
+}
+
+.content {
+    padding:25px;
+}
+
+footer {
+    /*border:var(--border);*/
+    background-image: var(--banner-footer);
+    /*background-size: 100% 100%;*/
+    height:30px;
+    margin-bottom:var(--content-spacing);
+    margin-top:var(--content-spacing);
+    text-align:center;
+}
+/* button styles */
+button {
+    background-image:var(--titleBars);
+    border:var(--border);
+    color:white;
+    margin-bottom:10px;
+}
+
+th {
+    color:var(--accent-2);
+}
+
+#linkNum {
+    color:var(--accent-2);
+    font-weight:bold;
+}
+
+h2 {
+    color:var(--accent-2);
+}
+
+#themeDiv {
+position: sticky;
+top: 550px;
+}
+
+@media only screen and (max-width: 640px) {
+    nav ul {
+        list-style-image:none;
+        list-style-type:none;
+    }
+    #flex {
+        flex-wrap:wrap;
+    }
+    main {
+        width:100%;
+        order:2;
+    }
+    aside {
+        display:block;
+        width:100%;
+        order:1;
+        margin-left:0;
+    }
+    nav ul {
+        display:flex;
+        flex-wrap:wrap;
+    }
+    nav ul li {
+        padding-right:10px;
+    }
+    nav ul > ul {
+        display:none;
+    }
+    }
+    @media only screen and (max-height: 640px) {
+        nav ul > ul {
+            display:none;
+        }
+    }
