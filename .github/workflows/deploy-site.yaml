@@ -3,7 +3,7 @@ name: Deploy to AWS S3 and Invalidate CloudFront
 on:
   push:
     branches:
-      - main  # Adjust this to your repository's default branch
+      - master  # Adjust this to your repository's default branch
 
 jobs:
   deploy:
