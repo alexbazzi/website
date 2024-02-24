@@ -1,16 +1,15 @@
 @font-face {
     font-family: "Monocraft";
     src: local("Monocraft");
-    /* src: url("https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf") format("truetype"); */
-    /* src: url("https://sadhost.neocities.org/fonts/FreePixel.ttf") format("truetype"); */
+    src: url("https://www.xbazzi.com/Monocraft.ttf") format("truetype");
 }
 
 :root {
-    --background: #0E191A;
-    --main-color:#7107AF;
+    --background: rgba(150, 150, 150, 0.95);
+    --main-color:#bf00ff;
     --main-color-dk:#441261;
-    --accent-1:#B5E61D;
-    --accent-2:#EB53D3;
+    --accent-1: #0000ff;
+    --accent-2:#00FFFF;
     --content-spacing:5px;
     --background-img:url('../img/beach-night-bg.webp');
     --banner:url('../img/bg_ascii2.png');
@@ -21,7 +20,6 @@
     --link-color:var(--accent-1);
     --border:2px solid black;
     --arrows:url('../assets/images/arrow.png');
-    
 }
 
 html,
@@ -43,9 +41,15 @@ body {
     background-size: 100% 100%;
     height:150px;
     margin-bottom:var(--content-spacing);
-    border:var(--border);
+    /* border:var(--border); */
 }
 
+p.blog {
+    font-weight: bold;
+    padding: 5px;            /* Add some space around the text */
+    display: inline-block;    /* Ensure the background only covers the text */
+
+}
 #container,
 .topbar img {
     max-width: 850px;
@@ -90,19 +94,30 @@ body::before {
 }
 
 aside {
-    width: 30%;
+    font-weight: bold;
+    width: 25%;
+    margin: 5px;            /* Add some space around the text */
     margin-left:var(--content-spacing);
     border-left:var(--border);
     background-color: var(--background);
-    opacity: 0.9;
 }
+.sidebar-title {
 
-.title, .sidebar-title {
     background-image:var(--titleBars);
     font-weight:bold;
+    font-size: 25px;
     border:var(--border);
-    font-size:20px;
-    color: var(--text-color);
+    color: var(--title-text-color);
+    text-shadow: var(--text-shadow-custom);
+}
+.title {
+    background-image:var(--titleBars);
+    background-size: 100% 100%;
+    padding: 5px;
+    font-weight:bold;
+    font-size: 25px;
+    border:var(--border);
+    color: var(--title-text-color);
     text-shadow: var(--text-shadow-custom);
     /*position: sticky;*/
 }
@@ -117,7 +132,6 @@ aside {
 
 main {
     width: 74%;
-    background-color: var(--background);
 }
 
 nav {
@@ -137,17 +151,19 @@ nav ul li a {
 
 .content {
     padding:25px;
+    opacity: 1;
+    background-color: var(--background);
+    font-size: 20px;
 }
 
 footer {
-    /*border:var(--border);*/
     background-image: var(--banner-footer);
-    /*background-size: 100% 100%;*/
     height:30px;
     margin-bottom:var(--content-spacing);
     margin-top:var(--content-spacing);
     text-align:center;
 }
+
 /* button styles */
 button {
     background-image:var(--titleBars);
@@ -170,8 +186,8 @@ h2 {
 }
 
 #themeDiv {
-position: sticky;
-top: 550px;
+    position: sticky;
+    top: 550px;
 }
 
 @media only screen and (max-width: 640px) {
@@ -188,7 +204,7 @@ top: 550px;
     }
     aside {
         display:block;
-        width:100%;
+        width:50%;
         order:1;
         margin-left:0;
     }
@@ -202,9 +218,10 @@ top: 550px;
     nav ul > ul {
         display:none;
     }
+}
+
+@media only screen and (max-height: 640px) {
+    nav ul > ul {
+        display:none;
     }
-    @media only screen and (max-height: 640px) {
-        nav ul > ul {
-            display:none;
-        }
-    }
+}
