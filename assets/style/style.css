@@ -6,15 +6,13 @@
 }
 
 :root {
-    /*background-image: url('../../assets/img/bg.jpg');*/
-    
     --background: #0E191A;
     --main-color:#7107AF;
     --main-color-dk:#441261;
     --accent-1:#B5E61D;
     --accent-2:#EB53D3;
     --content-spacing:5px;
-    --background-img:url('../img/bg-code.png');
+    --background-img:url('../img/beach-night-bg.webp');
     --banner:url('../img/bg_ascii2.png');
     --banner-footer: url('../img/tiny-bar-green.png');
     --titleBars:url('../img/tiny-bar-green.png');
@@ -80,7 +78,7 @@ body::before {
     bottom: 0;
     content: '';
     background-image: var(--background-img);
-    background-size: cover; /* Ensure the image covers the entire element */
+    background-size: 100% 100%; /* Ensure the image covers the entire element */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     opacity: 0.8; /* Adjust the transparency */
     z-index: -1;
