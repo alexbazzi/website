@@ -8,11 +8,11 @@
     --background: rgba(150, 150, 150, 0.95);
     --main-color:#bf00ff;
     --main-color-dk:#441261;
-    --accent-1: #0000ff;
+    --accent-1: #8d0081;
     --accent-2:#00FFFF;
     --content-spacing:5px;
-    --background-img:url('../img/beach-night-bg.webp');
-    --banner:url('../img/bg_ascii2.png');
+    --background-img:url('../img/bg-beach3.png');
+    --banner:url('../img/banner-cloud.png');
     --banner-footer: url('../img/tiny-bar-green.png');
     --titleBars:url('../img/tiny-bar-green.png');
     --text-color: white;
@@ -96,30 +96,34 @@ body::before {
 aside {
     font-weight: bold;
     width: 25%;
-    margin: 5px;            /* Add some space around the text */
+    height: 10%;
     margin-left:var(--content-spacing);
     border-left:var(--border);
     background-color: var(--background);
 }
-.sidebar-title {
 
+.sidebar-title {
+    padding: 3px 10px; /* Adjust top/bottom and left/right padding as needed */
     background-image:var(--titleBars);
     font-weight:bold;
-    font-size: 25px;
+    font-size: 20px;
     border:var(--border);
     color: var(--title-text-color);
     text-shadow: var(--text-shadow-custom);
 }
+
 .title {
-    background-image:var(--titleBars);
-    background-size: 100% 100%;
-    padding: 5px;
-    font-weight:bold;
-    font-size: 25px;
-    border:var(--border);
+    padding: 3px 10px; /* Adjust top/bottom and left/right padding as needed */
+    font-weight: bold;
+    font-size: 20px;
+    border: var(--border);
     color: var(--title-text-color);
     text-shadow: var(--text-shadow-custom);
-    /*position: sticky;*/
+    background-image: var(--titleBars);
+    background-size: 100% 100%;
+    /* Remove text-indent if it's not needed */
+    /* Ensure padding does not prevent text from reaching the ends */
+    box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
 }
 
 .navclass {
@@ -153,7 +157,7 @@ nav ul li a {
     padding:25px;
     opacity: 1;
     background-color: var(--background);
-    font-size: 20px;
+    font-size: 10;
 }
 
 footer {
