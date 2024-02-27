@@ -11,8 +11,8 @@
     --accent-1: #8d0081;
     --accent-2:#00FFFF;
     --content-spacing:5px;
-    --background-img:url('../img/bg-beach3.png');
-    --banner:url('../img/banner-cloud.png');
+    --background-img:url('../img/bg-beach5.png');
+    --banner:url('../img/bg_ascii2.png');
     --banner-footer: url('../img/tiny-bar-green.png');
     --titleBars:url('../img/tiny-bar-green.png');
     --text-color: white;
@@ -26,7 +26,7 @@ html,
 body {
     margin: 0;
     box-sizing: border-box;
-    font-family: "Monocraft";
+    font-family: "Times New Roman", Times, serif;
 }
 
 body {
@@ -36,23 +36,41 @@ body {
     z-index: 1;
 }
 
+.email-link {
+    position: absolute;
+    top: 10px; /* Adjust the position as needed */
+    right: 10px; /* Adjust the position as needed */
+    display: inline-block;
+}
+
+.blog-image {
+    width: 50%;
+}
+
 .topbar {
     background-image:var(--banner);
     background-size: 100% 100%;
     height:150px;
+    padding-bottom:var(--content-spacing);
     margin-bottom:var(--content-spacing);
     /* border:var(--border); */
 }
 
 p.blog {
     font-weight: bold;
-    padding: 5px;            /* Add some space around the text */
     display: inline-block;    /* Ensure the background only covers the text */
 
 }
+
+.project-image {
+    display: block; /* Ensures the image does not have inline whitespace below it */
+    max-width: 20%; /* Ensures the image is responsive and fits its container */
+    height: auto; /* Maintains aspect ratio */
+}
+
 #container,
 .topbar img {
-    max-width: 850px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 #container a {
@@ -90,7 +108,7 @@ body::before {
 
 #flex {
     display: flex;
-    max-width:850px;
+    max-width:1000px;
 }
 
 aside {
@@ -98,11 +116,16 @@ aside {
     width: 25%;
     height: 10%;
     margin-left:var(--content-spacing);
-    border-left:var(--border);
+}
+
+.sidebar-container {
+    /*border:var(--border);*/
+    /*margin-top: var(--content-spacing);*/
     background-color: var(--background);
 }
 
 .sidebar-title {
+    font-family: 'Monocraft';
     padding: 3px 10px; /* Adjust top/bottom and left/right padding as needed */
     background-image:var(--titleBars);
     font-weight:bold;
@@ -113,6 +136,7 @@ aside {
 }
 
 .title {
+    font-family: 'Monocraft';
     padding: 3px 10px; /* Adjust top/bottom and left/right padding as needed */
     font-weight: bold;
     font-size: 20px;
@@ -120,7 +144,10 @@ aside {
     color: var(--title-text-color);
     text-shadow: var(--text-shadow-custom);
     background-image: var(--titleBars);
-    background-size: 100% 100%;
+    background-repeat: repeat-x;
+    margin-top: var(--content-spacing);
+
+
     /* Remove text-indent if it's not needed */
     /* Ensure padding does not prevent text from reaching the ends */
     box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
@@ -154,18 +181,24 @@ nav ul li a {
 }
 
 .content {
-    padding:25px;
+    padding: 1px 20px;
     opacity: 1;
     background-color: var(--background);
-    font-size: 10;
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
 }
 
 footer {
-    background-image: var(--banner-footer);
-    height:30px;
-    margin-bottom:var(--content-spacing);
+    background-color: rgb(70, 70, 70);
+    height:5%;
+    border: var(--border);
+    margin-bottom: var(--content-spacing);
     margin-top:var(--content-spacing);
-    text-align:center;
+    text-align: center;
+}
+
+.p footer {
+    margin: 5px;
 }
 
 /* button styles */
@@ -206,6 +239,7 @@ h2 {
         width:100%;
         order:2;
     }
+
     aside {
         display:block;
         width:50%;
