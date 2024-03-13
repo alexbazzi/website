@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Monkey Town</title>
+        <title>xbazzi.com</title>
         <meta property="og:image"
             content="https://sadgrl.online/images/og/homepage.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,27 +24,49 @@
                                 Home datacenter project
                         </div>
                         <div class="content">
-                                A home datacenter is what most Americans need, but don't deserve.
+                                What first started as a project to play around with declarative deployments and container orchestration has now grown into a server stack that runs critical services for my day to day life.
                                 <br>
-                                <img src="assets/img/dc1.JPG" class="blog-image">
-
-
-
                                 <br>
-                                Here is the logical diagram of my homelab setup.
+                                The hyper-converged infrastructure consists of 3 physical servers, all running Proxmox Virtual Environment as a hypervisor. 
+                                One of these machines has a 6-slot HDD bay, which is where the TrueNAS instance is virtualized. Another server runs an OPNsense appliance for firewalling and routing. 
+                                All servers run k3s master/worker Debian nodes, declaratively provisioned with Ansible and a gitops workflow through flux. Every server is equipped with 10gbps SFP+ NICs, and 
+                                the Juniper EX3300 L3 switch also comes with 4 SFP+ 10gbps slots, allowing for relatively fast data transfer speeds on LAN.
                                 <br>
-                                <img src="assets/img/homelab_logical.png" class="blog-image" style="width: 100%">
-                                
-                                
                                 <br>
-                                Had to fit some of the ultra-small form factor PCs with SFP+ NICs to enable 10gbps transfer speeds on LAN.
-                                <br>
-                                <img src="assets/img/dc2.JPG" class="blog-image">
+                                All these virtualized environments and containerized applications need space for persistent storage, which is where TrueNAS comes in. It's a FreeBSD-based NAS system that runs on top of ZFS, which allows 
+                                for the creation of highly available and fault tolerant networked file systems. It currently consists of 2 x 6 TB HDDs configured in a mirrored pool, with a 500 GB NVMe SSD as an L2 cache, and 64 GB of RAM as L1 cache.
+                                Because of the layered approach to caching frequently accessed data, we are able to saturate the 10gbps line when doing large-file data transfers (i.e. restoring backups).
                                 
                                 <br>
+                                <br>
+                                <a href="assets/img/dc1.JPG"><img src="assets/img/dc1.JPG" class="blog-image"></a>
+                                <br>
+                                <br>
+
+                                The diagram below depics the logical topology of the network and the connections to external services, namely Cloudflare and AWS.
+
+                                <br>
+                                <br>
+                                <a href="assets/img/homelab_logical.png"><img src="assets/img/homelab_logical.png" class="blog-image"></a>
+                                <br>
+                                <br>
+
+                                Two of the servers are ultra small form factor PCs, which made installing the massive 10gbps NICs extremely fun.  
+
+                                <br>
+                                <br>
+                                <a href="assets/img/dc2.JPG"><img src="assets/img/dc2.JPG" class="blog-image"></a>
+                                <br>
+                                <br>
+
                                 Accessing the main server BMC webUI through the IPMI interface via Ethernet, bypassing any need to output video into a monitor.
+
                                 <br>
-                                <img src="assets/img/mb1.JPG" class="blog-image">
+                                <br>
+                                <a href="assets/img/mb1.JPG"><img src="assets/img/mb1.JPG" class="blog-image"></a>
+                                <br>
+                                <br>
+                                A home datacenter is what most Americans deserve, but don't need.
                             </p>
                         </div>
                     </div>
