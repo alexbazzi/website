@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Monocraft";
     src: local("Monocraft");
-    src: url("https://www.xbazzi.com/Monocraft.ttf") format("truetype");
+    src: url("https://1pro71t329.execute-api.us-east-1.amazonaws.com/Monocraft.ttf") format("truetype");
 }
 
 :root {
@@ -20,6 +20,8 @@
     --link-color:var(--accent-1);
     --border:2px solid black;
     --arrows:url('../assets/images/arrow.png');
+    --font-size-content:18px;
+    --font-size-code: 13px;
 }
 
 html,
@@ -35,9 +37,15 @@ body {
     background-attachment: scroll;
     z-index: 1;
 }
+
+h1 {
+    margin: 0px;
+}
+
 ul {
     padding-inline-start: 5px;
 }
+
 .email-link {
     position: absolute;
     top: 10px; /* Adjust the position as needed */
@@ -67,18 +75,13 @@ p.blog {
 
 }
 
-.project-image {
-    display: block; /* Ensures the image does not have inline whitespace below it */
-    max-width: 20%; /* Ensures the image is responsive and fits its container */
-    height: auto; /* Maintains aspect ratio */
-    margin-top: 10px;
-}
 
 #container,
 .topbar img {
     max-width: 1000px;
     margin: 0 auto;
 }
+
 #container a {
     color:var(--link-color);
 }
@@ -124,10 +127,23 @@ aside {
     margin-left:var(--content-spacing);
 }
 
+.author {
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+.diagram {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
 .sidebar-container {
     /*border:var(--border);*/
     /*margin-top: var(--content-spacing);*/
     background-color: var(--background);
+    margin-bottom: var(--content-spacing);
 }
 
 .sidebar-title {
@@ -144,7 +160,6 @@ aside {
 .title {
     font-family: 'Monocraft';
     padding: 3px 10px; /* Adjust top/bottom and left/right padding as needed */
-    font-weight: bold;
     font-size: 20px;
     border: var(--border);
     color: var(--title-text-color);
@@ -152,6 +167,7 @@ aside {
     background-image: var(--titleBars);
     background-repeat: repeat-x;
     margin-top: var(--content-spacing);
+    font-weight: bold;
 
 
     /* Remove text-indent if it's not needed */
@@ -186,12 +202,51 @@ nav ul li a {
     color:var(--accent-1);
 }
 
+.project {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    padding: 20px;
+}
+
+.project-image {
+    display: block; /* Ensures the image does not have inline whitespace below it */
+    max-width: 100%; /* Ensures the image is responsive and fits its container */
+    height: auto; /* Maintains aspect ratio */
+    margin-top: 10px;
+    margin: auto;
+    width: 100px;
+}
+
 .content {
+
     padding: 1px 20px;
     opacity: 1;
     background-color: var(--background);
-    font-size: 18px;
+    font-size: var(--font-size-content);
     font-family: "Times New Roman", Times, serif;
+}
+
+.under-construction {
+    text-align: center;
+}
+
+pre {
+    font-size: var(--font-size-code);
+    /*white-space: pre-wrap; /* Ensures lines are wrapped */
+    /*word-wrap: break-word; /* Breaks the word to prevent overflow */
+    overflow-x: auto; /* Adds horizontal scrollbar if needed */
+    max-width: 100%; /* Ensures the pre element does not exceed its container */
+}
+
+code {
+    background-color: #252525; /* Light grey background */
+    padding: 2px 4px;
+    border-radius: 3px;
+    word-wrap:  break-word;
+    font-family: 'Monocraft';
+    font-size: 14px;
 }
 
 footer {

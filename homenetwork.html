@@ -6,9 +6,15 @@
         <meta property="og:image"
             content="https://sadgrl.online/images/og/homepage.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="assets/style/style.css">
-        <!-- <script src="assets/scripts/load.js"></script> -->
-        <!-- <script src="//gc.zgo.at/count.js" data-goatcounter="https://sadgrl.goatcounter.com/count" async=""></script> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <script src="assets/scripts/rss.js"></script>
+        <script src="assets/scripts/aside.js"></script>
+        <script src="https://kit.fontawesome.com/e6a86da546.js" crossorigin="anonymous"></script>       
         <link rel="icon" href="/assets/images/fav.gif" type="image/gif">
     </head>
 
@@ -19,51 +25,59 @@
 
                 <main>
                     <div class="wrapper">
-                        <div class="title">
+                        <div class="title" style="font-style: italic;">
                             <a href="index.html">../</a>
-                                Home datacenter project
+                               homenetwork.html
                         </div>
                         <div class="content">
-                                What first started as a project to play around with declarative deployments and container orchestration has now grown into a server stack that runs critical services for my day to day life.
+                                <h1>Datacenter at Home</h1>
+                                <div class="author">Written by Xander Bazzi on 24-03-12.</div>
+                                <br>
+                                Embarking on a homelab journey often starts with a spark of curiosity and a dash of ambition. For me, it began as a playful experiment with declarative deployments and container orchestration but swiftly evolved into an essential part of my daily life. This transformation wasn't just about growth in scale; it was about creating a robust infrastructure capable of supporting my day-to-day digital needs with resilience and efficiency. Let's delve deeper into the intricacies of my homelab setup, a testament to the power of hyper-converged infrastructure and the meticulous engineering that sustains it.
                                 <br>
                                 <br>
-                                The hyper-converged infrastructure consists of 3 physical servers, all running Proxmox Virtual Environment as a hypervisor. 
-                                One of these machines has a 6-slot HDD bay, which is where the TrueNAS instance is virtualized. Another server runs an OPNsense appliance for firewalling and routing. 
-                                All servers run k3s master/worker Debian nodes, declaratively provisioned with Ansible and a gitops workflow through flux. Every server is equipped with 10gbps SFP+ NICs, and 
-                                the Juniper EX3300 L3 switch also comes with 4 SFP+ 10gbps slots, allowing for relatively fast data transfer speeds on LAN.
+
+                                At the heart of my setup are three physical servers, each playing a pivotal role in the orchestration of my digital domain. These servers are powered by Proxmox Virtual Environment, a versatile hypervisor that underpins the entire infrastructure. Proxmox's flexibility and efficiency make it the perfect candidate for running a variety of virtual machines and containers, tailored to my specific requirements. One server, distinct with its 6-slot HDD bay, is the stronghold of my data storage capabilities, hosting a TrueNAS instance. This virtualized environment is not just about storage; it's about reliable, accessible, and secure data management.
                                 <br>
                                 <br>
-                                All these virtualized environments and containerized applications need space for persistent storage, which is where TrueNAS comes in. It's a FreeBSD-based NAS system that runs on top of ZFS, which allows 
-                                for the creation of highly available and fault tolerant networked file systems. It currently consists of 2 x 6 TB HDDs configured in a mirrored pool, with a 500 GB NVMe SSD as an L2 cache, and 64 GB of RAM as L1 cache.
-                                Because of the layered approach to caching frequently accessed data, we are able to saturate the 10gbps line when doing large-file data transfers (i.e. restoring backups).
                                 
+                                Another server in the stack is dedicated to networking, running an OPNsense appliance that oversees firewalling and routing. This setup ensures that my network is not only secure from external threats but also smartly managed to facilitate seamless communication between different services and devices. The backbone of this interconnected ecosystem is a trio of servers, each hosting k3s master/worker Debian nodes. These nodes are provisioned declaratively with Ansible, leveraging a GitOps workflow through Flux. This methodological approach ensures consistency, reproducibility, and scalability, allowing the infrastructure to evolve without compromising reliability.
                                 <br>
                                 <br>
                                 <a href="assets/img/dc1.JPG"><img src="assets/img/dc1.JPG" class="blog-image"></a>
                                 <br>
                                 <br>
-
-                                The diagram below depics the logical topology of the network and the connections to external services, namely Cloudflare and AWS.
-
+                                Connectivity within this homelab is nothing short of revolutionary, with each server equipped with 10Gbps SFP+ NICs. The inclusion of a Juniper EX3300 L3 switch, featuring 4 SFP+ 10Gbps slots, elevates the network's data transfer capabilities, ensuring that high-speed connectivity is not just a luxury but a standard. This setup facilitates incredibly fast LAN speeds, making large-file data transfers and backup restorations a breeze.
                                 <br>
                                 <br>
-                                <a href="assets/img/homelab_logical.png"><img src="assets/img/homelab_logical.png" class="blog-image"></a>
+                                
+                                Storage solutions within this homelab are meticulously engineered, with TrueNAS serving as the cornerstone of persistent storage. This FreeBSD-based NAS system leverages ZFS to create a networked file system that is both highly available and fault-tolerant. The configuration includes 2 x 6 TB HDDs in a mirrored pool, supplemented by a 500 GB NVMe SSD as an L2 cache and 64 GB of RAM for L1 caching. This layered caching strategy is crucial for optimizing data access speeds, allowing for the full utilization of the 10Gbps network capacity during intensive data transfer operations.
                                 <br>
                                 <br>
-
-                                Two of the servers are ultra small form factor PCs, which made installing the massive 10gbps NICs extremely fun.  
-
+                                
+                                A notable feature of this homelab is its physical footprint. Two of the servers are ultra-small form factor PCs, a design choice that posed an interesting challenge when integrating the sizeable 10Gbps NICs. This constraint didn't hinder performance but rather added a layer of complexity and satisfaction to the assembly process.
                                 <br>
                                 <br>
                                 <a href="assets/img/dc2.JPG"><img src="assets/img/dc2.JPG" class="blog-image"></a>
                                 <br>
                                 <br>
-
-                                Accessing the main server BMC webUI through the IPMI interface via Ethernet, bypassing any need to output video into a monitor.
-
+                                
+                                An essential aspect of managing this homelab is the use of the main server's BMC webUI, accessed through the IPMI interface over Ethernet. This setup bypasses the need for traditional video output to a monitor, allowing for remote management and troubleshooting of the server, further emphasizing the system's versatility and user-centric design.
                                 <br>
                                 <br>
                                 <a href="assets/img/mb1.JPG"><img src="assets/img/mb1.JPG" class="blog-image"></a>
+                                <br>
+                                <br>
+                                
+                                The logical topology of this homelab, detailed in the accompanying diagram, reveals not just the complexity and efficiency of the setup but also its connectivity with external services like Cloudflare and AWS. This integration highlights the homelab's role not just as a standalone system but as a node within a larger network of services, benefiting from the robustness and scalability of cloud solutions while maintaining the personalization and control of a private infrastructure.
+                                <br>
+                                <br>
+                                <a href="assets/img/homelab_logical.png"><img src="assets/img/homelab_logical.png" class="blog-image"></a>
+                                <br>
+                                <br>
+                                
+                                This homelab is more than just a collection of hardware and software; it's a dynamic ecosystem that balances performance, security, and scalability. It represents the culmination of a journey from curiosity to critical infrastructure, demonstrating the power of modern virtualization, networking, and storage solutions in creating a resilient, efficient, and deeply personal digital environment.
+
                                 <br>
                                 <br>
                                 A home datacenter is what most Americans deserve, but don't need.
@@ -73,42 +87,10 @@
 
                 </main>
 
-                <aside>
-                    <div class="sidebar-container">
-                    <div class="sidebar-title">Quick links</div>
-                        <nav id="nav"> 
-                            <ul>
-                                <li>
-                                    <a href="index.html">Home</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <a href="https://github.com/alexbazzi" target="_blank"><span class="fa-brands fa-github"></span>GitHub</a>
-                                </li>
-                            </ul>
-                            <ul>
-                                <li>
-                                    <a href="https://linkedin.com/in/alexbazzi" target="_blank"><span class="fa-brands fa-linkedin"></span>LinkedIn</a>
-                                </li>
-                            </ul>
-                            <a target='_blank' rel='noreferrer noopener'
-                                href='mailto:x@xbazzi.com'>
-                            <img style="height: 40px; margin: 10px;" src="assets/img/email.gif">
-                            </a>
-                        </nav>
-                    </div>
-
-                    <div class="sidebar-container">
-                        <div class="sidebar-title">RSS feeds</div>
-                        <div id="rss-feed">Loading...</div>
-                        <script src="assets/scripts/rss.js" crossorigin="anonymous"></script>
-
-                    </div>
-                </aside>
-
             </div>
-            <footer id="footer"></footer>
+            <footer id="footer">
+                This site is hosted in an AWS S3 bucket, cached globally by a CloudFront distribution, and updated programmatically through GitHub Actions.
+            </footer>
         </div>
         <style>
                 .update {

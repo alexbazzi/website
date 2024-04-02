@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>xbazzi.com</title>
+    <meta property="og:image" content="https://sadgrl.online/images/og/homepage.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="assets/scripts/rss.js"></script>
+    <script src="assets/scripts/aside.js"></script>
+    <script src="https://kit.fontawesome.com/e6a86da546.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="topbar"></div>
+        <div id="flex">
+            <main>
+                <div class="wrapper">
+                    <div class="title" style="font-style: italic;">
+                        <a href="index.html">../</a>
+                        website.html
+                    </div>
+                    <div class="content">
+                        <h1>Overengineered Static Site</h1>
+                        <div class="author">Written by Xander Bazzi on 24-04-01.</div>
+                        <br>
+                        In the ever-evolving landscape of web development and hosting, the journey of deploying a
+                        personal website can often traverse through complex and intriguing paths. My recent adventure in
+                        launching my own website is a testament to the myriad of possibilities that cloud technologies
+                        offer, albeit with an overcomplicated flair that could rival one of Rube Goldberg's
+                        contraptions. Let's
+                        delve into the intricacies of hosting a static site on AWS, using services such as
+                        S3, CloudFront, API Gateway, and a sprinkle of GitHub Actions magic.
+
+                        <br>
+                        <br>
+                        The cornerstone of this digital architecture is the AWS S3 bucket, renowned for its simplicity
+                        and reliability. I decided to serve the website through CloudFront,
+                        AWS's content delivery network,
+                        to reduce latency and improve load times for users across the globe.
+                        To seamlessly incorporate an RSS feed from cyware.com and mitigate CORS errors, I implemented an
+                        AWS HTTP API Gateway to act as a backend proxy. This HTTP endpoint works as a bridge, fetching
+                        the RSS feed from a server (as opposed to a client browser) and
+                        presenting it as if it were a native component of the site, thereby circumventing any CORS
+                        limitations.
+
+                        <br>
+                        <br>
+                        <a href="assets/img/website-diagram-dark.png"><img src="assets/img/website-diagram-dark.png"
+                                class="diagram"></a>
+                        <br>
+                        <br>
+                        The quest for automation and seamless updates led me down the path of
+                        integrating GitHub Actions into the workflow. Each push to the master branch
+                        triggers a series of actions that programmatically update the contents of the S3
+                        bucket. Furthermore, the
+                        CloudFront distribution cache is invalidated, forcing it to fetch and distribute the newest
+                        content.
+                        Here is the <code> deploy-site.yaml</code> file that runs the CI pipeline:
+                        <pre><code class="language-yaml">name: Deploy to AWS S3 and Invalidate CloudFront
+
+on:
+    push:
+    branches:
+        - master
+
+jobs:
+    deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+        - uses: actions/checkout@v2
+        
+        - name: Sync to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+            args: >
+            --follow-symlinks 
+            --delete
+            --exclude '.git/*'
+            --exclude '.github/*'
+        env:
+            AWS_S3_BUCKET: www.xbazzi.com
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: 'us-east-1'
+            SOURCE_DIR: './'
+
+        - name: Invalidate CloudFront Distribution
+        uses: chetan/invalidate-cloudfront-action@v1
+        env:
+            DISTRIBUTION: E3VV7PXHG95EM0
+            PATHS: '/*'
+            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            AWS_REGION: 'us-east-1'</code></pre>
+                        </p>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+        <footer id="footer">
+            This site is hosted in an AWS S3 bucket, cached globally by a CloudFront distribution, and updated
+            programmatically through GitHub Actions.
+        </footer>
+    </div>
+    <style>
+        .update {
+            border: 2px dashed var(--main-color);
+            padding: 5px;
+        }
+
+        main {
+            background-color: transparent !important;
+        }
+
+        .content {
+            background-color: var(--background);
+        }
+
+        .title {
+            margin-top: var(--content-spacing);
+        }
+
+        .title:first-child {
+            margin-top: 0 !important;
+        }
+
+        .myButton {
+            display: flex;
+            margin: 0 auto;
+            width: 150px;
+        }
+
+        .yw-content {
+            text-align: center;
+        }
+    </style>
+
+</body>
+
+</html>

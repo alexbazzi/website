@@ -27,7 +27,7 @@ function parseRSSFeed(feedXML) {
 }
 
 async function displayRSSFeed() {
-    const url = "https://tldr.tech/api/rss/tech"; //https://www.nist.gov/news-events/cybersecurity/rss.xml
+    const url = "https://1pro71t329.execute-api.us-east-1.amazonaws.com/allnews/feed"
     const rssData = await fetchRSSFeed(url);
 
     if (rssData) {
@@ -38,4 +38,5 @@ async function displayRSSFeed() {
     }
 }
 
-displayRSSFeed();
+// Make script available globally
+window.loadRSSFeed = displayRSSFeed;
