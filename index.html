@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>xbazzi.com</title>
         <meta charset="UTF-8">
-        <title>Xander Bazzi</title>
-        <meta property="og:image"
-            content="https://sadgrl.online/images/og/homepage.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/style/style.css">
         <script src="assets/scripts/rss.js"></script>
         <script src="assets/scripts/aside.js"></script>
+        <script src="assets/scripts/footer.js"></script>
         <script src="https://kit.fontawesome.com/e6a86da546.js" crossorigin="anonymous"></script>       
     </head>
 
@@ -26,38 +25,31 @@
                                 software-defined networking, and reverse engineering.
                             </p>
                         </div>
-        
-                            <div class="title"><span class="fa-solid fa-lightbulb"></span>  projects </div>
-                            <div class="content" style="display: flex;">
-                                <div class="project">
-                                    <a href="./homenetwork.html"><img src="assets/img/dc1.JPG" alt="Datacenter preview" class="project-image"></a>
-                                    <a  href='./homenetwork.html'><span class="caption">
-                                        Datacenter at Home
-                                    </span></a>
-                                </div>
-                                <div class="project">
-                                    <a href="./website.html"><img src="assets/img/website.png" alt="Website preview" class="project-image"></a>
-                                    <a  href='./website.html'><span class="caption">
-                                        Overengineered Static Site (this website)
-                                    </span></a>
-                                </div>
+                        <div class="title"><span class="fa-solid fa-lightbulb"></span>  projects </div>
+                        <div class="content" style="display: flex;">
+                            <div class="project">
+                                <a href="./homenetwork.html"><img src="assets/img/dc1.JPG" alt="Datacenter preview" class="project-image"></a>
+                                <a  href='./homenetwork.html'><span class="caption">
+                                    Datacenter at Home
+                                </span></a>
+                            </div>
+                            <div class="project">
+                                <a href="./website.html"><img src="assets/img/website.png" alt="Website preview" class="project-image"></a>
+                                <a  href='./website.html'><span class="caption">
+                                    Overengineered Static Site (this website)
+                                </span></a>
+                            </div>
                         </div>
                     </div>
                 </main>
-
             </div>
-            <footer id="footer">
-                This site is hosted in an AWS S3 bucket, cached globally by a CloudFront distribution, and updated programmatically through GitHub Actions.
-            </footer>
+
+            <footer id="footer"></footer>
             <div class="under-construction">
                 <img src="assets/img/gifs/thispageisunderconstruction.gif" alt="Under construction gif"></img>
             </div>
         </div>
         <style>
-                .update {
-                    border: 2px dashed var(--main-color);
-                    padding: 5px;
-                }
                 main {
                     background-color: transparent !important;
                 }

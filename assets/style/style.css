@@ -54,10 +54,9 @@ ul {
 }
 
 .blog-image {
-    width: 30%;
+    width: 100%;
     display: block;
     margin: 0 auto;
-
 }
 
 .topbar {
@@ -84,6 +83,7 @@ p.blog {
 
 #container a {
     color:var(--link-color);
+    text-decoration: none;
 }
 
 .topbar img {
@@ -130,13 +130,6 @@ aside {
 .author {
     font-size: 15px;
     font-style: italic;
-}
-
-
-.diagram {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
 }
 
 .sidebar-container {
@@ -247,6 +240,10 @@ code {
     word-wrap:  break-word;
     font-family: 'Monocraft';
     font-size: 14px;
+}
+
+caption {
+    font-weight: bold;
 }
 
 footer {

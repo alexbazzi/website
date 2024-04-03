@@ -4,7 +4,15 @@ All notable changes to this site will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the versioning is consistent with [Semantic Versioning](https://semver.org/).
 
-## [0.4.0] - 2024-04-1
+## [0.5.0] - 2024-04-02
+### Added
+- footer.js script to dynamically load the footer with js.
+
+### Changed
+- Some CSS stuff
+- Cleaned up index.html and worked on the wording for homenetwork.html.
+
+## [0.4.0] - 2024-04-01
 ### Added
 - Cyware RSS feed.
 - New project page: Overengineered Static Site.

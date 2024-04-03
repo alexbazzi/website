@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>xbazzi.com</title>
-    <meta property="og:image" content="https://sadgrl.online/images/og/homepage.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="assets/style/style.css">
@@ -16,6 +15,7 @@
 
     <script src="assets/scripts/rss.js"></script>
     <script src="assets/scripts/aside.js"></script>
+    <script src="assets/scripts/footer.js"></script>
     <script src="https://kit.fontawesome.com/e6a86da546.js" crossorigin="anonymous"></script>
 </head>
 
@@ -56,7 +56,7 @@
                         <br>
                         <br>
                         <a href="assets/img/website-diagram-dark.png"><img src="assets/img/website-diagram-dark.png"
-                                class="diagram"></a>
+                                class="blog-image"></a>
                         <br>
                         <br>
                         The quest for automation and seamless updates led me down the path of
@@ -110,17 +110,9 @@ jobs:
             </main>
 
         </div>
-        <footer id="footer">
-            This site is hosted in an AWS S3 bucket, cached globally by a CloudFront distribution, and updated
-            programmatically through GitHub Actions.
-        </footer>
+        <footer id="footer"></footer>
     </div>
     <style>
-        .update {
-            border: 2px dashed var(--main-color);
-            padding: 5px;
-        }
-
         main {
             background-color: transparent !important;
         }
@@ -137,15 +129,6 @@ jobs:
             margin-top: 0 !important;
         }
 
-        .myButton {
-            display: flex;
-            margin: 0 auto;
-            width: 150px;
-        }
-
-        .yw-content {
-            text-align: center;
-        }
     </style>
 
 </body>
