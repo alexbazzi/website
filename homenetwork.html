@@ -6,22 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style/style.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
     <script src="assets/scripts/footer.js"></script>
     <script src="assets/scripts/rss.js"></script>
     <script src="assets/scripts/aside.js"></script>
-    <script src="https://kit.fontawesome.com/e6a86da546.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/assets/images/fav.gif" type="image/gif">
 </head>
 
 <body>
     <div id="container">
-        <div class="topbar"></div>
+        <a href="https://www.xbazzi.com"><div class="topbar" ></div></a>
         <div id="flex">
-
             <main>
                 <div class="wrapper">
                     <div class="title" style="font-style: italic;">
@@ -38,83 +32,59 @@
                         into a multi-server rack with enterprise-level configuration and security.
                         This transformation
                         wasn't just about growth in scale; it was about creating a robust infrastructure capable of
-                        supporting my day-to-day digital needs with resilience and efficiency. Let's delve deeper into
-                        the intricacies of my homelab setup, a testament to the power of hyper-converged infrastructure
-                        and the meticulous engineering that sustains it.
+                        supporting my day-to-day digital needs with resilience and efficiency.
+
                         <br>
                         <br>
 
-                        At the core of the infrastructure are 3 physical servers, each running Proxmox Virtual Environment,
-                        which is a versatile linux-based hypervisor that underpins the entire infrastructure. Proxmox's flexibility and
-                        efficiency make it the perfect candidate for running a variety of virtual machines and
-                        LXC containers (even though I run my containers in a k3s cluster instead). All services and workflows run on
-                        virtualized machines hosted on the 3 PVE machines. Three of these VMs (one in each server) act as the master nodes
-                        for my k3s deployment; all other VMs are either running appliances or dedicated services.
-                        Two of the servers are actually used Lenovo Ultra Small Form Factor PCs, and the other one is built from scratch.
-                        The latter has a 6-drive HDD bay, and is where my TrueNAS Scale VM lives. Since TrueNAS operates with the ZFS file system,
+                        At the core of the setup are 3 physical servers, each running Proxmox Virtual Environment,
+                        which is a versatile linux-based hypervisor that underpins the entire virtualization framework.
+                        All services and workflows run on
+                        VMs hosted on the 3 PVE physical servers. Three of these VMs (one in each server) act as master nodes
+                        for my k3s cluster; all other VMs are either running appliances or dedicated services.
+                        Two of the servers are actually second-hand Lenovo Ultra Small Form Factor PCs, and the third one is built from scratch with a Supermicro board.
+                        The latter runs a TrueNAS VM, and sports a 6-drive HDD bay, providing plenty of storage for all my workloads. 
+                        Since TrueNAS operates with the ZFS file system,
                         it needs direct access to the disks in order to read the SATA metadata; Proxmox facilitates this with physical disk passthrough.
-                        It also supports direct PCI passthrough if I decide to get a dedicated GPU for encoding/AI workloads.
-                        Even though it is not recommended to virtualize a NAS, it's hard to justify a beefy Xeon CPU just to run OpenZFS workloads.
-                        <br>
-                        <br>
+                        The main storage pools are supplemented by a 500 GB NVMe SSD as an L2 cache and
+                        64 GB of RAM for L1 caching. If some data in a pool gets enough hits, it gets cached in RAM, allowing 
+                        for the full saturation of the 10Gbps line during intensive data
+                        transfer operations.
+                        Proxmox also supports direct PCI passthrough if I decide to get a dedicated GPU for encoding or AI workloads.
 
-                        Another server in the stack is dedicated to networking, running an OPNsense appliance that
-                        oversees firewalling and routing. This setup ensures that my network is not only secure from
-                        external threats but also smartly managed to facilitate seamless communication between different
-                        services and devices. The backbone of this interconnected ecosystem is a trio of servers, each
-                        hosting k3s master/worker Debian nodes. These nodes are provisioned declaratively with Ansible,
-                        leveraging a GitOps workflow through Flux. This methodological approach ensures consistency,
-                        reproducibility, and scalability, allowing the infrastructure to evolve without compromising
-                        reliability.
                         <br>
                         <br>
                         <a href="assets/img/dc1.JPG"><img src="assets/img/dc1.JPG" class="blog-image"></a>
                         <br>
-                        <br>
-                        Connectivity within this homelab is nothing short of revolutionary, with each server equipped
-                        with 10Gbps SFP+ NICs. The inclusion of a Juniper EX3300 L3 switch, featuring 4 SFP+ 10Gbps
-                        slots, elevates the network's data transfer capabilities, ensuring that high-speed connectivity
-                        is not just a luxury but a standard. This setup facilitates incredibly fast LAN speeds, making
-                        large-file data transfers and backup restorations a breeze.
-                        <br>
-                        <br>
 
-                        Storage solutions within this homelab are meticulously engineered, with TrueNAS serving as the
-                        cornerstone of persistent storage. This FreeBSD-based NAS system leverages ZFS to create a
-                        networked file system that is both highly available and fault-tolerant. The configuration
-                        includes 2 x 6 TB HDDs in a mirrored pool, supplemented by a 500 GB NVMe SSD as an L2 cache and
-                        64 GB of RAM for L1 caching. This layered caching strategy is crucial for optimizing data access
-                        speeds, allowing for the full utilization of the 10Gbps network capacity during intensive data
-                        transfer operations.
-                        <br>
-                        <br>
+                        The network is managed by a virtualized OPNsense appliance with 3 interfaces (2x10gbps SFP+ and 1x1000BASE-T) for WAN, LAN, and DMZ
+                        traffic.
+                        Logically, the network is segmented by a Juniper EX3300 switch, which comes with 4x SFP+ ports.
+                        And every server is equipped with 10Gbps SFP+ NICs, effectively
+                        yielding data transfer speeds of up to 10Gbps in the LAN. 
 
-                        A notable feature of this homelab is its physical footprint. Two of the servers are ultra-small
-                        form factor PCs, a design choice that posed an interesting challenge when integrating the
-                        sizeable 10Gbps NICs. This constraint didn't hinder performance but rather added a layer of
-                        complexity and satisfaction to the assembly process.
                         <br>
                         <br>
                         <a href="assets/img/dc2.JPG"><img src="assets/img/dc2.JPG" class="blog-image"></a>
                         <br>
                         <br>
 
-                        An essential aspect of managing this homelab is the use of the main server's BMC webUI, accessed
-                        through the IPMI interface over Ethernet. This setup bypasses the need for traditional video
-                        output to a monitor, allowing for remote management and troubleshooting of the server, further
-                        emphasizing the system's versatility and user-centric design.
+                        When trying to install PVE in the Supermicro server, I noticed that the only way to output video 
+                        in the X11SSM board is via a VGA cable. However, the board does come equipped with a 
+                        BMC chip, allowing for remote control of the server through the IPMI interface.  
+                        The inclusion of IPMI is common for server motherboards, as it allows for bare-metal, GUI remote management over Ethernet.
+
                         <br>
                         <br>
                         <a href="assets/img/mb1.JPG"><img src="assets/img/mb1.JPG" class="blog-image"></a>
                         <br>
                         <br>
 
-                        The logical topology of this homelab, detailed in the accompanying diagram, reveals not just the
-                        complexity and efficiency of the setup but also its connectivity with external services like
-                        Cloudflare and AWS. This integration highlights the homelab's role not just as a standalone
-                        system but as a node within a larger network of services, benefiting from the robustness and
+                        As evidenced in the logical diagram below, the on-premises network is not a just a standalone hyperconverged
+                        infrastructure, but
+                        a node within a larger network of services, benefiting from the robustness and
                         scalability of cloud solutions while maintaining the personalization and control of a private
-                        infrastructure.
+                        environment.
                         <br>
                         <br>
                         <a href="assets/img/homelab_logical.png"><img src="assets/img/homelab_logical.png"
@@ -122,11 +92,10 @@
                         <br>
                         <br>
 
-                        This homelab is more than just a collection of hardware and software; it's a dynamic ecosystem
+                        This homelab is more than just a collection of hardware and software; it's an interconnected technology stack
                         that balances performance, security, and scalability. It represents the culmination of a journey
                         from curiosity to critical infrastructure, demonstrating the power of modern virtualization,
-                        networking, and storage solutions in creating a resilient, efficient, and deeply personal
-                        digital environment.
+                        networking, and storage solutions.
 
                         <br>
                         <br>
