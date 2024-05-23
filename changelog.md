@@ -4,6 +4,19 @@ All notable changes to this site will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the versioning is consistent with [Semantic Versioning](https://semver.org/).
 
+## [0.6.1] - 2024-05-22
+### Added
+- Descriptive diagram of the logical setup in the README.md.
+
+### Changed
+- Modified text in homenetwork and index pages.
+
+## [0.6.0] - 2024-04-14
+### Changed
+- index.html
+- homenetwork.html
+
+
 ## [0.5.0] - 2024-04-02
 ### Added
 - footer.js script to dynamically load the footer with js.

@@ -51,7 +51,10 @@
                         for the full saturation of the 10Gbps line during intensive data
                         transfer operations.
                         Proxmox also supports direct PCI passthrough if I decide to get a dedicated GPU for encoding or AI workloads.
-
+                        <br>
+                        <br>
+                        Inspired by the <a href="https://wiki.eth0.nl/index.php/LackRack">LackRack</a>, here's a picture of the "enterprise-level"
+                        physical infrastructure:
                         <br>
                         <br>
                         <a href="assets/img/dc1.JPG"><img src="assets/img/dc1.JPG" class="blog-image"></a>
@@ -59,9 +62,9 @@
 
                         The network is managed by a virtualized OPNsense appliance with 3 interfaces (2x10gbps SFP+ and 1x1000BASE-T) for WAN, LAN, and DMZ
                         traffic.
-                        Logically, the network is segmented by a Juniper EX3300 switch, which comes with 4x SFP+ ports.
-                        And every server is equipped with 10Gbps SFP+ NICs, effectively
-                        yielding data transfer speeds of up to 10Gbps in the LAN. 
+                        Logically, the network is segmented by a Juniper EX3300 switch, with 48 1000BASE-T ports and 4x SFP+ ports.
+                        Every server is equipped with 10Gbps SFP+ NICs, connected to the switch with Direct Attach Copper cables, 
+                        yielding theoretical data transfer speeds of up to 10Gbps within the LAN.
 
                         <br>
                         <br>
