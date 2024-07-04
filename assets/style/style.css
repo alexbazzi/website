@@ -11,10 +11,10 @@
     --accent-1: #8d0081;
     --accent-2:#00FFFF;
     --content-spacing:5px;
-    --background-img:url('../img/bg-beach5.png');
-    --banner:url('../img/bg_ascii2.png');
-    --banner-footer: url('../img/tiny-bar-green.png');
-    --titleBars:url('../img/tiny-bar-green.png');
+    --background-img:url('../img/space-2.png');
+    --banner:url('../img/xbazzi_logo2.png');
+    --banner-footer: url('../img/title-bars-win95.png');
+    --titleBars:url('../img/title-bars-win95.png');
     --text-color: white;
     --text-shadow-custom: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     --link-color:var(--accent-1);
@@ -142,7 +142,8 @@ aside {
 .sidebar-title {
     font-family: 'Monocraft';
     padding: 3px 10px; /* Adjust top/bottom and left/right padding as needed */
-    background-image:var(--titleBars);
+    background-image: var(--titleBars);
+    background-repeat: round; 
     font-weight:bold;
     font-size: 20px;
     border:var(--border);
@@ -158,7 +159,7 @@ aside {
     color: var(--title-text-color);
     text-shadow: var(--text-shadow-custom);
     background-image: var(--titleBars);
-    background-repeat: repeat-x;
+    background-repeat: round;
     margin-top: var(--content-spacing);
     font-weight: bold;
 
