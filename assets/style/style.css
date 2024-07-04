@@ -240,7 +240,8 @@ pre {
 }
 
 code {
-    background-color: #252525; /* Light grey background */
+    color: #3e5915;
+    background-color: #f6f5b2;
     padding: 2px 4px;
     border-radius: 3px;
     word-wrap:  break-word;

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/school-book.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <script src="assets/scripts/rss.js"></script>
@@ -51,7 +51,7 @@
 
                         <br>
                         <br>
-                        <a href="assets/img/website-diagram-dark.png"><img src="assets/img/website-diagram-dark.png"
+                        <a href="assets/img/website-diagram-light2.png"><img src="assets/img/website-diagram-light2.png"
                                 class="blog-image"></a>
                         <br>
                         <br>
@@ -61,7 +61,7 @@
                         bucket. Furthermore, the
                         CloudFront distribution cache is invalidated, forcing it to fetch and distribute the newest
                         content.
-                        Here is the <code> deploy-site.yaml</code> file that runs the CI pipeline:
+                        Here is the <code class="language-yaml"> deploy-site.yaml</code> file that runs the CI pipeline:
                         <pre><code class="language-yaml">name: Deploy to AWS S3 and Invalidate CloudFront
 
 on:
@@ -99,7 +99,6 @@ jobs:
             AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             AWS_REGION: 'us-east-1'</code></pre>
-                        </p>
                     <p>Even though I injected complexity by implementing a cloud-based, declarative, highly-available architecture, 
                         I still haven't touched a single JS framework; the whole codebase is simple HTML, CSS and javascript. 
                         Maybe one day I'll learn React, Vue, or Svelte... maybe even JQuery... but not today.
