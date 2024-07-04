@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     </ul>
                     <a target='_blank' rel='noreferrer noopener'
                         href='mailto:xander@xbazzi.com'>
-                    <img style="height: 40px; margin: 10px;" src="assets/img/gifs/email.gif">
+                    <img style="height: 90px; margin: 10px;" src="assets/img/gifs/email.gif">
                     </a>
                 </nav>
             </div>

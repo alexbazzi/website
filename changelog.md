@@ -4,6 +4,10 @@ All notable changes to this site will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the versioning is consistent with [Semantic Versioning](https://semver.org/).
 
+## [0.7.2] - 2024-07-03
+### Changed
+- Slight modifications to text and styling.
+
 ## [0.7.1] - 2024-07-03
 ### Changed
 - Modified background picture to something more realistic.
