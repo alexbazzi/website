@@ -11,7 +11,7 @@
     --accent-1: #8d0081;
     --accent-2:#00FFFF;
     --content-spacing:5px;
-    --background-img:url('../img/space-2.png');
+    --background-img:url('../img/astronaut_beach6.png');
     --banner:url('../img/xbazzi_logo2.png');
     --banner-footer: url('../img/title-bars-win95.png');
     --titleBars:url('../img/title-bars-win95.png');
@@ -26,13 +26,14 @@
 
 html,
 body {
+    background-color: rgba(0, 0, 0, 0.35);
     margin: 0;
     box-sizing: border-box;
     font-family: "Times New Roman", Times, serif;
 }
 
 body {
-    background-color: black;
+    /*background-color: black;*/
     color: var(--text-color);
     background-attachment: scroll;
     z-index: 1;
@@ -109,9 +110,10 @@ body::before {
     bottom: 0;
     content: '';
     background-image: var(--background-img);
+    background-color: black;
     background-size: 100% 100%; /* Ensure the image covers the entire element */
     background-repeat: no-repeat; /* Prevent the image from repeating */
-    opacity: 0.8; /* Adjust the transparency */
+    opacity: 0.9; /* Adjust the transparency */
     z-index: -1;
 }
 
@@ -174,7 +176,7 @@ aside {
 }
 
 .wrapper {
-    opacity: 0.9;
+    opacity: 1;
 }
 
 main {
