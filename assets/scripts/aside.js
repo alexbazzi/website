@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             </div>
 
             <div class="sidebar-container">
-                <div class="sidebar-title">Cyware RSS feed</div>
+                <div class="sidebar-title">darknet.org RSS</div>
                 <div id="rss-feed">Loading...</div>
             </div>
         </aside>
