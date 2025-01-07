@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     </ul>
                     <ul>
                         <li>
-                            <a href="https://github.com/alexbazzi" target="_blank"><span class="fa-brands fa-github"></span>GitHub</a>
+                            <a href="https://github.com/xbazzi" target="_blank"><span class="fa-brands fa-github"></span>GitHub</a>
                         </li>
                     </ul>
                     <ul>
