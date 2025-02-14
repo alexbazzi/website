@@ -25,11 +25,17 @@
 
     <div class="grid gap-4 grid-cols-12 max-w-5xl mx-auto">
         <div class="col-span-8 flex flex-col gap-8">
-            <x-info-window title="whoami" padding="0" margin="1" icon="user">
-                <p class="text-lg px-4 pt-4 text-justify">
-                    Software & aerospace engineer. Experienced in algorithms, systems programming, and scientific computing.
+            <x-info-window title="whoami" class="prose text-black prose-stone p-4" padding="0" margin="1" icon="user">
+                <p>
+                    Software, aerospace, and ML engineer. Experienced in socket, 
+                    systems, and scientific programming. 
+                    cybersecurity, and network engineering.
                 </p>
-                <p class="text-lg px-4 py-8 text-justify">
+                <p>
+                    I have spent more hours in DevOps, infrastructure, and networking than I'm willing
+                    to admit. Check out the <a href="/projects/datacenter">datacenter</a> project.
+                </p>
+                <p>
                     As you can see, I am not a front end developer.
                 </p>
             </x-info-window>
@@ -60,36 +66,23 @@
         </div>
         <div class="col-span-4 flex flex-col gap-8">
             <x-terminal-window title="links" icon="link">
-                <div class="text-white">
-                    <ul>
-                        <li>
-                            @include('_partials.link', [
-                                'text' => 'Home',
-                                'icon_type' => 'solid',
-                                'icon' => 'home',
-                                'newtab' => false,
-                                'link' => '/',
-                            ])
-                        </li>
-                        <li>
-                            @include('_partials.link', [
-                                'text' => 'GitHub',
-                                'icon_type' => 'brands',
-                                'icon' => 'github',
-                                'link' => 'https://github.com/xbazzi',
-                            ])
-                        </li>
-                        <li>
-                            @include('_partials.link', [
-                                'text' => 'LinkedIn',
-                                'icon_type' => 'brands',
-                                'icon' => 'linkedin',
-                                'link' => 'https://linkedin.com/in/alexbazzi',
-                            ])
-                        </li>
-                    </ul>
-                    <div class="flex justify-between items-center pb-2 pl-5 pt-2 ">
-                        <a target='_blank' rel='noreferrer noopener' href='mailto:xander@xbazzi.com'>
+                @php
+                    $links = [
+                        ['text' => 'Home', 'newtab' => false, 'icon_type' => 'solid', 'icon' => 'home', 'link' => ''],
+                        ['text' => 'Gitea', 'icon_type' => 'brands', 'icon' => 'git-alt', 'link' => 'https://gitgud.foo'],
+                        ['text' => 'Vikunja', 'icon_type' => 'solid', 'icon' => 'clipboard', 'link' => 'https://todo.dudeget.online'],
+                        ['text' => 'NextCloud', 'icon_type' => 'solid', 'icon' => 'cloud', 'link' => 'https://cloud.dudeget.online'],
+                        ['text' => 'Mattermost', 'icon_type' => 'solid', 'icon' => 'message', 'link' => 'https://chat.thegrind.dev'],
+                        ['text' => 'GitHub', 'icon_type' => 'brands', 'icon' => 'github', 'link' => 'https://github.com/xbazzi'],
+                        ['text' => 'LinkedIn', 'icon_type' => 'brands', 'icon' => 'linkedin', 'link' => 'https://linkedin.com/in/alexbazzi'],
+                    ];
+                @endphp
+                <div class="text-verde p-3">
+                    <div class="flex flex-col gap-2 ">
+                        @foreach ($links as $link)
+                            @include('_partials.link', $link)
+                        @endforeach
+                        <a target='_blank' class="block" rel='noreferrer noopener' href='mailto:xander@xbazzi.com'>
                             <img class="h-auto" src="/assets/img/gifs/email_keyboard.gif">
                         </a>
                     </div>
@@ -98,13 +91,13 @@
             </x-terminal-window>
 
             <x-terminal-window title="darknet.org -rss" icon="rss">
-                <div class="text-xs p-4 text-white rounded-md pl-1" id="rss-feed">Loading... Or is it?</div>
+                <div class="text-xs p-4 text-verde rounded-md pl-1" id="rss-feed">Loading... Or is it?</div>
             </x-terminal-window>
         </div>
     </div>
     {{-- Footer --}}
-    <div class="flex w-full h-auto">
+    <!-- <div class="flex w-full h-auto">
         <img src="/assets/img/gifs/green_lights.gif" alt="lightspeed">
         <img src="/assets/img/gifs/green_lights.gif" alt="lightspeed">
-    </div>
+    </div> -->
 @endsection

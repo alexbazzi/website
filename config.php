@@ -3,7 +3,7 @@
 return [
     'production' => false,
     'baseUrl' => '',
-    'title' => 'Jigsaw',
+    'title' => 'xBazzi',
     'description' => 'Website description.',
     'collections' => [
         'projects' => [
