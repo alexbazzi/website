@@ -10,7 +10,7 @@
     <div
         class="flex border-1 border-black justify-between items-center 
                py-1 px-1  title text-lg bg-gradient-to-tr 
-               from-black from-25% via-purple-400 via-70% to-black to-99%">
+               from-black from-25% via-purple-500 via-70% to-black to-99%">
         <div class="flex gap-2 items-center pl-1 text-white">
             <span class="fa-solid fa-{{ $icon }}"></span>
             <p class="">{{ $title }}</p>

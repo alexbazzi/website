@@ -1,7 +1,7 @@
 @extends('_layouts.main')
 
 @section('body')
-    {{-- <div class="flex gap-4">
+    <!-- <div class="flex gap-4">
 <div>
 
     <div class="bg-indigo-500 size-24 border border-black"></div>
@@ -21,11 +21,12 @@
     <div class="bg-white col-span-5 row-start-2 row-end-2 border  border-black"></div>
     <div class="bg-white col-span-1 row-start-3 row-end-3 col-start-2  border-black"></div>
 </div>
-</div> --}}
+</div> -->
 
     <div class="grid gap-4 grid-cols-12 max-w-5xl mx-auto">
         <div class="col-span-8 flex flex-col gap-8">
-            <x-info-window title="whoami" class="prose text-black prose-stone p-4" padding="0" margin="1" icon="user">
+            <x-info-window title="whoami" class="p-4" icon="user">
+            <div class="prose prose-stone text-black">
                 <p>
                     Software and aerospace engineer. Experienced in socket, 
                     systems, and scientific programming. Currently working on kernel drivers
@@ -38,6 +39,7 @@
                 <p>
                     As you can see, I am not a front end developer.
                 </p>
+            </div>
             </x-info-window>
 
             {{-- Projects section --}}

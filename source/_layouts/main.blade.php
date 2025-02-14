@@ -8,12 +8,12 @@
     <meta name="description" content="{{ $page->description }}">
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>{{ $page->title }}</title>
-    <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
     <script src="https://kit.fontawesome.com/6faa1ef8ce.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
     <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
 </head>
 
-<body class="text-gray-900 py-10 font-sans antialiased">
+<body class="text-gray-900 py-10 antialiased">
     <div class="flex w-full h-auto items-center justify-center">
         <a href="/">
             <img class="mx-auto mb-4" src="/assets/img/xbazzi_ascii.png" alt="">
