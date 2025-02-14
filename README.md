@@ -1,5 +1,5 @@
 # Personal website
-My personal website is a modern homage to the '90s, serving as the dichotomy between the simple aesthetics of retro websites with the unnecessary complexity of the latest DevOps abstractions. It's built using HTML, CSS, and JavaScript. Haven't touched a js framework yet.
+My personal website is a modern homage to the '90s, serving as the dichotomy between the simple aesthetics of retro websites with the unnecessary complexity of the latest DevOps abstractions. The static site is built with Jigsaw, using PHP blade templates for modularity and ease of maintenance.
 
 ![diagram](assets/img/website-diagram-dark.png "Website Logical Diagram")
 
