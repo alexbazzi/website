@@ -15,7 +15,7 @@ function parseRSSFeed(feedXML) {
     const items = xmlDoc.querySelectorAll("item");
     let html = "<ul>";
 
-    for (let i = 0; i < Math.min(items.length, 5); i++) {
+    for (let i = 0; i < Math.min(items.length, 8); i++) {
         const title = items[i].querySelector("title").textContent;
         const link = items[i].querySelector("link").textContent;
         html += `<a href="${link}" target="_blank">${title}</a><br><br>`;
@@ -38,5 +38,7 @@ async function displayRSSFeed() {
     }
 }
 
-// Make script available globally
-window.loadRSSFeed = displayRSSFeed;
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("Loading RSS feed")
+    displayRSSFeed()
+});
