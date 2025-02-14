@@ -5,6 +5,7 @@ author: Xander Bazzi
 date: 2024-01-25
 collaborators: nobody
 image: /assets/img/rvo.png
+url: /blog/rvo/index.html
 section: content
 ---
 
