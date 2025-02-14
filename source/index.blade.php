@@ -27,13 +27,13 @@
         <div class="col-span-8 flex flex-col gap-8">
             <x-info-window title="whoami" class="prose text-black prose-stone p-4" padding="0" margin="1" icon="user">
                 <p>
-                    Software, aerospace, and ML engineer. Experienced in socket, 
-                    systems, and scientific programming. 
-                    cybersecurity, and network engineering.
+                    Software and aerospace engineer. Experienced in socket, 
+                    systems, and scientific programming. Currently working on kernel drivers
+                    and machine learning.
                 </p>
                 <p>
-                    I have spent more hours in DevOps, infrastructure, and networking than I'm willing
-                    to admit. Check out the <a href="/projects/datacenter">datacenter</a> project.
+                    I have spent more hours configuring DevOps and infrastructure than I'm willing
+                    to admit. Check out the <a href="/projects/datacenter">"datacenter"</a>.
                 </p>
                 <p>
                     As you can see, I am not a front end developer.
