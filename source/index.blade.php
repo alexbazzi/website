@@ -62,7 +62,7 @@
                         @include('_partials.card', [
                             'title' => $p->title,
                             'image' => $p->image,
-                            'link' => $p->getUrl(),
+                            'link' => $p->url,
                         ])
                     @endforeach
                 </div>
