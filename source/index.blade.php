@@ -39,6 +39,7 @@
                     As you can see, I am not a front end developer.
                 </p>
             </x-info-window>
+
             {{-- Projects section --}}
             <x-info-window title="projects" class="p-4" icon="lightbulb">
                 <div class="grid grid-cols-4 gap-4">
@@ -51,6 +52,7 @@
                     @endforeach
                 </div>
             </x-info-window>
+
             {{-- Blog section --}}
             <x-info-window title="blog" class="p-4" icon="blog">
                 <div class="grid grid-cols-4 gap-4">
