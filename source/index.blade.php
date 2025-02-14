@@ -33,7 +33,7 @@
                 </p>
                 <p>
                     I have spent more hours configuring DevOps and infrastructure than I'm willing
-                    to admit. Check out the <a href="/projects/datacenter">"datacenter"</a>.
+                    to admit. Check out the <a href="/projects/datacenter/index.html">"datacenter"</a>.
                 </p>
                 <p>
                     As you can see, I am not a front end developer.
@@ -47,7 +47,7 @@
                         @include('_partials.card', [
                             'title' => $p->title,
                             'image' => $p->image,
-                            'link' => $p->getUrl(),
+                            'link' => $p->url,
                         ])
                     @endforeach
                 </div>
@@ -97,6 +97,7 @@
             </x-terminal-window>
         </div>
     </div>
+
     {{-- Footer --}}
     <!-- <div class="flex w-full h-auto">
         <img src="/assets/img/gifs/green_lights.gif" alt="lightspeed">

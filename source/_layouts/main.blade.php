@@ -9,7 +9,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>{{ $page->title }}</title>
     <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-    <script src="https://kit.fontawesome.com/6faa1ef8ce.js" crossorigin="anonymous" ></script>
+    <script src="https://kit.fontawesome.com/6faa1ef8ce.js" crossorigin="anonymous"></script>
     <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
 </head>
 

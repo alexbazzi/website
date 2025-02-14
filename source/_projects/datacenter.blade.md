@@ -5,6 +5,7 @@ author: Xander Bazzi
 date: 2023-11-20
 collaborators: Xander Bazzi
 image: /assets/img/infra_new.JPG
+url: /projects/datacenter/index.html
 section: content
 ---
 

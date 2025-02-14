@@ -5,6 +5,7 @@ author: Xander Bazzi
 date: 2023-10-15
 collaborators: Papi and Saurio
 image: /assets/img/website.png
+url: /projects/website/index.html
 section: content
 ---
 
